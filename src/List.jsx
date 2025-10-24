@@ -1,23 +1,22 @@
-// import _ from 'lodash';
-// import { uniqueId } from 'lodash';
+import _ from "lodash";
+import { uniqueId } from "lodash";
 
-const List = () => {
+const List = (props) => {
+  const { debtors } = props;
+  const render = (debtors) => {
+    return debtors.map(({ name, debt }) => {
+      return (
+        <li key={uniqueId()}>
+          <label>{name}</label>
+          <bn />
+          <label>{debt}</label>
+        </li>
+      );
+    });
+  };
   return (
     <form>
-      <ul>
-        <li>
-          <label>Поле 1:</label>
-          <input type="text" name="field1" />
-        </li>
-        <li>
-          <label>Поле 2:</label>
-          <input type="text" name="field2" />
-        </li>
-        <li>
-          <label>Поле 3:</label>
-          <input type="text" name="field3" />
-        </li>
-      </ul>
+      <ul>{render(debtors)}</ul>
     </form>
   );
 };
