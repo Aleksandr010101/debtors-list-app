@@ -1,23 +1,17 @@
+import React, { useState } from "react";
 import _ from "lodash";
 import { uniqueId } from "lodash";
+import ListItem from "./ListItem.jsx";
 
 const List = (props) => {
   const { debtors } = props;
+
   const render = (debtors) => {
-    return debtors.map(({ name, debt }) => {
-      return (
-        <li key={uniqueId()}>
-          <label>{name}</label>
-          <bn />
-          <label>{debt}</label>
-        </li>
-      );
+    return debtors.map((debtor) => {
+      return <ListItem key={debtor.id} debtor={debtor} />;
     });
   };
-  return (
-    <form>
-      <ul>{render(debtors)}</ul>
-    </form>
-  );
+  return <ul>{render(debtors)}</ul>;
 };
+
 export default List;

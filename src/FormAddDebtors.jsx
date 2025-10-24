@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
+import { uniqueId } from "lodash";
 
 const FormAddDebtors = (props) => {
   const [name, setName] = useState("");
@@ -7,7 +8,7 @@ const FormAddDebtors = (props) => {
 
   const debtorsSubmit = (e, debtors, name, debt) => {
     e.preventDefault();
-    const resultD = [{ name, debt }, ...debtors];
+    const resultD = [{ name, debt, id: uniqueId(), chek: false }, ...debtors];
     setDebtors(resultD);
     setName("");
     setDebt("");
@@ -16,13 +17,17 @@ const FormAddDebtors = (props) => {
 
   return (
     <form onSubmit={(e) => debtorsSubmit(e, debtors, name, debt)}>
+      <label htmlFor="name">ФИО</label>
       <input
+        id="name"
         type="text"
         name="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <label htmlFor="debt">Задолженность</label>
       <input
+        id="debt"
         type="text"
         name="debt"
         value={debt}

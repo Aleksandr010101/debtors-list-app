@@ -4,14 +4,14 @@ import FormAddDebtors from "./FormAddDebtors.jsx";
 
 const DebtorsList = () => {
   const [debtors, setDebtors] = useState([
-    { name: "Alex", debt: 100 },
-    { name: "Tanya", debt: 200 },
+    { name: "Alex", debt: 100, id: 20, chek: false },
+    { name: "Tanya", debt: 200, id: 21, chek: false },
   ]);
 
   return (
     <>
       <FormAddDebtors debtors={debtors} setDebtors={setDebtors} />
-      <List debtors={debtors} />
+      <List debtors={debtors} setDebtors={setDebtors} />
     </>
   );
 };
