@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ListItem = (props) => {
   const { name, debt, chek } = props.debtor;

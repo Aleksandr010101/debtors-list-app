@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import _ from "lodash";
-import { uniqueId } from "lodash";
 import ListItem from "./ListItem.jsx";
 
 const List = (props) => {
