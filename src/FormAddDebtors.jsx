@@ -34,6 +34,7 @@ const FormAddDebtors = (props) => {
         name="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="Form-Add-Debtors__input"
       />
       <label htmlFor="debt">Задолженность</label>
       <input
@@ -42,8 +43,13 @@ const FormAddDebtors = (props) => {
         name="debt"
         value={debt}
         onChange={(e) => setDebt(e.target.value)}
+        className="Form-Add-Debtors__input"
       />
-      <input type="submit" value="Submit" />
+      <input
+        type="submit"
+        value="Добавить"
+        className="Form-Add-Debtors__submit"
+      />
     </form>
   );
 };

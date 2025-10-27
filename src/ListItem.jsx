@@ -7,17 +7,19 @@ const ListItem = memo((props) => {
   return (
     <li>
       <div>{name}</div>
-      <div>{`${debt}Р`}</div>
-      <form />
-      <label>
-        <input
-          name={name}
-          type="checkbox"
-          checked={chek}
-          onChange={() => onToggle(id)}
-        />
-        Вернул
-      </label>
+      <div>{debt} ₽</div>
+      <form>
+        <label>
+          <input
+            name={name}
+            type="checkbox"
+            checked={chek}
+            onChange={() => onToggle(id)}
+            style={{ margin: 0 }}
+          />
+          Вернул
+        </label>
+      </form>
     </li>
   );
 });

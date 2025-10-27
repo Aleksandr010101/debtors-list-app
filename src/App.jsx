@@ -1,9 +1,10 @@
+import "./App.css";
 import DebtorsList from "./DebtorsList.jsx";
 import Header from "./Header.jsx";
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <Header />
       <DebtorsList />
     </div>
