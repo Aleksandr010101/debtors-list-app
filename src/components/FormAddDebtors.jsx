@@ -3,7 +3,7 @@ import { useState } from "react";
 const FormAddDebtors = (props) => {
   const [name, setName] = useState("");
   const [debt, setDebt] = useState("");
-  const { handleSetDebtor } = props;
+  const { onAddDebtor } = props;
 
   const handleSubmit = (e, name, debt) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const FormAddDebtors = (props) => {
       return;
     }
 
-    handleSetDebtor(nameTrim, debtAmount);
+    onAddDebtor(nameTrim, debtAmount);
     setName("");
     setDebt("");
   };

@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 const ListItem = memo((props) => {
-  const { name, debt, id, chek } = props.debtor;
+  const { name, debt, id, check } = props.debtor;
   const { onToggle } = props;
 
   return (
@@ -13,7 +13,7 @@ const ListItem = memo((props) => {
           <input
             name={name}
             type="checkbox"
-            checked={chek}
+            checked={check}
             onChange={() => onToggle(id)}
             style={{ margin: 0 }}
           />

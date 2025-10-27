@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
+import { uniqueId } from "lodash";
 import List from "./List.jsx";
 import FormAddDebtors from "./FormAddDebtors.jsx";
-import { uniqueId } from "lodash";
 
 const DebtorsList = () => {
   const [debtors, setDebtors] = useState([]);
@@ -9,22 +9,22 @@ const DebtorsList = () => {
   const toggleDebtor = useCallback((debtorId) => {
     setDebtors((prevDebtors) => {
       return prevDebtors.map((debtor) =>
-        debtor.id === debtorId ? { ...debtor, chek: !debtor.chek } : debtor
+        debtor.id === debtorId ? { ...debtor, check: !debtor.check } : debtor
       );
     });
   }, []);
 
-  const handleSetDebtor = useCallback((name, debt) => {
+  const handleAddDebtor = useCallback((name, debt) => {
     setDebtors((prevDebtors) => [
-      { name, debt, id: uniqueId(), chek: false },
+      { name, debt, id: uniqueId(), check: false },
       ...prevDebtors,
     ]);
   }, []);
 
   return (
     <div>
-      <FormAddDebtors handleSetDebtor={handleSetDebtor} />
-      <List debtors={debtors} toggle={toggleDebtor} />
+      <FormAddDebtors onAddDebtor={handleAddDebtor} />
+      <List debtors={debtors} onToggle={toggleDebtor} />
     </div>
   );
 };
