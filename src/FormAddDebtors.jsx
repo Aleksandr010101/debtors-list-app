@@ -7,7 +7,20 @@ const FormAddDebtors = (props) => {
 
   const handleSubmit = (e, name, debt) => {
     e.preventDefault();
-    handleSetDebtor(name, debt);
+
+    const nameTrim = name.trim();
+    if (!nameTrim) {
+      alert("Введите ФИО должника");
+      return;
+    }
+
+    const debtAmount = parseFloat(debt);
+    if (isNaN(debtAmount) || debtAmount <= 0) {
+      alert("Введите корректную сумму долга");
+      return;
+    }
+
+    handleSetDebtor(nameTrim, debtAmount);
     setName("");
     setDebt("");
   };
