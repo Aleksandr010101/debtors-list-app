@@ -1,22 +1,19 @@
 import { useState } from "react";
-import { uniqueId } from "lodash";
 
 const FormAddDebtors = (props) => {
   const [name, setName] = useState("");
   const [debt, setDebt] = useState("");
-  const { debtors, setDebtors } = props;
+  const { handleSetDebtor } = props;
 
-  const debtorsSubmit = (e, debtors, name, debt) => {
+  const handleSubmit = (e, name, debt) => {
     e.preventDefault();
-    const resultD = [{ name, debt, id: uniqueId(), chek: false }, ...debtors];
-    setDebtors(resultD);
+    handleSetDebtor(name, debt);
     setName("");
     setDebt("");
-    return;
   };
 
   return (
-    <form onSubmit={(e) => debtorsSubmit(e, debtors, name, debt)}>
+    <form onSubmit={(e) => handleSubmit(e, name, debt)}>
       <label htmlFor="name">ФИО</label>
       <input
         id="name"

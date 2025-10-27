@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { memo } from "react";
 
-const ListItem = (props) => {
-  const { name, debt, chek } = props.debtor;
-  const [itemChek, setItemChek] = useState(chek);
+const ListItem = memo((props) => {
+  const { name, debt, id, chek } = props.debtor;
+  const { onToggle } = props;
 
   return (
     <li>
@@ -13,13 +13,13 @@ const ListItem = (props) => {
         <input
           name={name}
           type="checkbox"
-          checked={itemChek}
-          onChange={() => setItemChek(!itemChek)}
+          checked={chek}
+          onChange={() => onToggle(id)}
         />
         Вернул
       </label>
     </li>
   );
-};
+});
 
 export default ListItem;
