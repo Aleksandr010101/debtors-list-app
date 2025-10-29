@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { uniqueId } from "lodash";
+import DebtorsListContext from "../contexts/Contexts.js";
 import List from "./List.jsx";
 import FormAddDebtors from "./FormAddDebtors.jsx";
 
@@ -24,7 +25,9 @@ const DebtorsList = () => {
   return (
     <div>
       <FormAddDebtors onAddDebtor={handleAddDebtor} />
-      <List debtors={debtors} onToggle={toggleDebtor} />
+      <DebtorsListContext.Provider value={{ onToggleDebtor: toggleDebtor }}>
+        <List debtors={debtors} />
+      </DebtorsListContext.Provider>
     </div>
   );
 };

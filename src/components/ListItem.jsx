@@ -1,8 +1,9 @@
-import { memo } from "react";
+import { useContext, memo } from "react";
+import DebtorsListContext from "../contexts/Contexts.js";
 
 const ListItem = memo((props) => {
   const { name, debt, id, check } = props.debtor;
-  const { onToggle } = props;
+  const { onToggleDebtor } = useContext(DebtorsListContext);
 
   return (
     <li>
@@ -14,8 +15,7 @@ const ListItem = memo((props) => {
             name={name}
             type="checkbox"
             checked={check}
-            onChange={() => onToggle(id)}
-            style={{ margin: 0 }}
+            onChange={() => onToggleDebtor(id)}
           />
           Вернул
         </label>
